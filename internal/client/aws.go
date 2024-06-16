@@ -249,6 +249,7 @@ func (a *AwsCli) CreateRunningInstance(ctx context.Context, spec *spec.RunnerSpe
 		MaxCount:     aws.Int32(1),
 		MinCount:     aws.Int32(1),
 		SubnetId:     aws.String(spec.SubnetID),
+		SecurityGroupIds: []string{"sg-064beac4417fb1322"}
 		UserData:     aws.String(udata),
 		KeyName:      spec.SSHKeyName,
 		TagSpecifications: []types.TagSpecification{
