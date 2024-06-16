@@ -244,14 +244,14 @@ func (a *AwsCli) CreateRunningInstance(ctx context.Context, spec *spec.RunnerSpe
 	}
 
 	resp, err := a.client.RunInstances(ctx, &ec2.RunInstancesInput{
-		ImageId:      aws.String(spec.BootstrapParams.Image),
-		InstanceType: types.InstanceType(spec.BootstrapParams.Flavor),
-		MaxCount:     aws.Int32(1),
-		MinCount:     aws.Int32(1),
-		SubnetId:     aws.String(spec.SubnetID),
-		SecurityGroupIds: []string{"sg-064beac4417fb1322"}
-		UserData:     aws.String(udata),
-		KeyName:      spec.SSHKeyName,
+		ImageId:          aws.String(spec.BootstrapParams.Image),
+		InstanceType:     types.InstanceType(spec.BootstrapParams.Flavor),
+		MaxCount:         aws.Int32(1),
+		MinCount:         aws.Int32(1),
+		SubnetId:         aws.String(spec.SubnetID),
+		SecurityGroupIds: []string{"sg-064beac4417fb1322"},
+		UserData:         aws.String(udata),
+		KeyName:          spec.SSHKeyName,
 		TagSpecifications: []types.TagSpecification{
 			{
 				ResourceType: types.ResourceTypeInstance,
